@@ -39,6 +39,8 @@ zstyle ':completion:*:default' menu select=2
 setopt complete_aliases
 
 alias sls='screen -ls'
+alias sc='screen'
+alias hi='history'
 alias la='ls -a'
 alias ll='ls -l'
 
