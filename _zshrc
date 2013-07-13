@@ -4,16 +4,12 @@ colors
 setopt transient_rprompt
 case ${UID} in
 0)
-    PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
+    PROMPT="%{${fg[red]}%}[%/]%{${reset_color}%}"$'\n'"%B%{${fg[red]}%}%n@%m #%{${reset_color}%}%b "
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
     ;;
 *)
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        prompt_host="$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') "
-    PROMPT="%{${fg[red]}%}[%/]%{${reset_color}%}"$'\n'"%{${fg[cyan]}%}%n@$prompt_host%{${fg[red]}%}$%{${reset_color}%} "
+    PROMPT="%{${fg[red]}%}[%/]%{${reset_color}%}"$'\n'"%{${fg[cyan]}%}%n@%m %{${fg[red]}%}$%{${reset_color}%} "
     PROMPT2="%{${fg[red]}%}%_$%{${reset_color}%} "
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     ;;
